@@ -1,5 +1,30 @@
 * {
     padding: 0;
-    margin: 0;
-    box-sizing:border-box;
+    /* margin: 0; */
+    box-sizing:border-box;    
+}
+
+body {    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Cambria", sans-serif;    
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.container .row {
+    display: flex;
+}
+
+.row .square {
+   width: 16px;
+   height: 16px;   
+   border: 1px solid black;
 }
