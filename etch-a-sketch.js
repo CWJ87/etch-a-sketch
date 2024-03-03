@@ -15,6 +15,7 @@ function create16x16Grid() {
         for (let squareCnt = 0; squareCnt < TOTAL_SQUARES_PER_ROW; squareCnt++) {
             const square = document.createElement("div");
             square.setAttribute("class", "square");
+            square.addEventListener("mouseover", changeColor);
             row.appendChild(square);
         }
 
@@ -24,6 +25,16 @@ function create16x16Grid() {
     }
 
     document.body.appendChild(container);
+}
+
+// add a hover effect so the grid divs change color when your mouse passes over them
+// adds a random color to the square when the mouse hovers over it
+function changeColor() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+
+    this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
 
 create16x16Grid();
