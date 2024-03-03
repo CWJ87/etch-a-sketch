@@ -7,17 +7,20 @@ function create16x16Grid() {
     const TOTAL_SQUARES_PER_ROW = 16;
     const container = document.createElement("div");
 
-    // each row will have 16 boxes
+    // each row will have 16 squarees
     for (let rowCnt = 0; rowCnt < TOTAL_ROWS; rowCnt++) {
         const row = document.createElement("div");
+        row.setAttribute("class", "row");
 
-        for (let boxCnt = 0; boxCnt < TOTAL_SQUARES_PER_ROW; boxCnt++) {
-            const box = document.createElement("div");
-            row.appendChild(box);
+        for (let squareCnt = 0; squareCnt < TOTAL_SQUARES_PER_ROW; squareCnt++) {
+            const square = document.createElement("div");
+            square.setAttribute("class", "square");
+            row.appendChild(square);
         }
 
         // add the newly created row to the container
         container.appendChild(row);
+        container.setAttribute("class", "container");
     }
 
     document.body.appendChild(container);
