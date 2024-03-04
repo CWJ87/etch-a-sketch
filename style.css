@@ -22,9 +22,11 @@ h1 {
     font-family: "Cambria", sans-serif;
 }
 
-.custom-grid-btn {
-    padding: 10px;    
+button {
+    padding: 10px;
 }
+
+
 
 .container {
     margin-top: 20px;

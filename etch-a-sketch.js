@@ -2,9 +2,17 @@
 
 const container = document.createElement("div");
 const customGridBtn = document.querySelector(".custom-grid-btn");
+const setColorBlackBtn = document.querySelector(".paint-black-btn");
+const setRandColorBtn = document.querySelector(".paint-random-color-btn");
+
+let isColorSquare = false;
 
 customGridBtn.addEventListener("click", () => {
     let userInput = prompt("Please enter a number between 1 and 100 for the grid size:");
+
+    if (userInput === null) {
+        return;
+    }
 
     userInput = parseInt(userInput);
 
@@ -24,6 +32,9 @@ customGridBtn.addEventListener("click", () => {
 
     createGrid(userInput);
 });
+
+setColorBlackBtn.addEventListener("click", () => isColorSquare = false)
+setRandColorBtn.addEventListener("click", () => isColorSquare = true);
 
 function createGrid(size = 16) {    
     const TOTAL_ROWS = size;
@@ -45,7 +56,7 @@ function createGrid(size = 16) {
             square.style.width = `${squareSize}px`; // Set square size dynamically
             square.style.height = `${squareSize}px`; // Set square size dynamically
 
-            square.addEventListener("mouseover", changeColor);
+            square.addEventListener("mouseover", paintSquare);
             row.appendChild(square);
         }
 
@@ -56,14 +67,18 @@ function createGrid(size = 16) {
     document.body.appendChild(container);
 }
 
-// adds a random color to the square when the mouse hovers over it
-function changeColor() {
-    const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
-
-    this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+function paintSquare() {
+    if (isColorSquare) {
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+        this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+    else {
+        this.style.backgroundColor = `black`;
+    }
 }
+
 
 // create default 16x16 grid
 createGrid();
