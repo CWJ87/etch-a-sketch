@@ -8,14 +8,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: lightblue;
 }
 
 h1 {
-    font-family: "Cambria", sans-serif;    
+    font-family: "Cambria", sans-serif;
+}
+
+.custom-grid-btn {
+    padding: 10px;
 }
 
 .container {
     margin-top: 50px;
+    background-color: white;    
 }
 
 .container .row {

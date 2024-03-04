@@ -1,13 +1,22 @@
 "use strict";
 
-// create a container for the grid
-// create 16x16 grid
-function create16x16Grid() {
-    const TOTAL_ROWS = 16;
-    const TOTAL_SQUARES_PER_ROW = 16;
-    const container = document.createElement("div");
+const customGridBtn = document.querySelector(".custom-grid-btn");
+customGridBtn.addEventListener("click", () => {
+    let userInput = prompt("Please enter a number between 1 and 100 for the grid size:");
 
-    // each row will have 16 squarees
+    while (userInput < 0 || userInput > 100) {
+        alert("Invalid input!");
+        userInput = prompt("Please enter a number between 1 and 100 for the grid size:");
+    }
+
+    createGrid(userInput);
+});
+
+function createGrid(size = 16) {
+    const TOTAL_ROWS = size;
+    const TOTAL_SQUARES_PER_ROW = size;
+    const container = document.createElement("div");
+    
     for (let rowCnt = 0; rowCnt < TOTAL_ROWS; rowCnt++) {
         const row = document.createElement("div");
         row.setAttribute("class", "row");
@@ -27,7 +36,6 @@ function create16x16Grid() {
     document.body.appendChild(container);
 }
 
-// add a hover effect so the grid divs change color when your mouse passes over them
 // adds a random color to the square when the mouse hovers over it
 function changeColor() {
     const red = Math.floor(Math.random() * 256);
@@ -37,4 +45,5 @@ function changeColor() {
     this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
 
-create16x16Grid();
+// create default 16x16 grid
+createGrid();
