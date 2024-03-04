@@ -1,14 +1,21 @@
 * {
-    padding: 0;    
+    padding: 0;
+    margin: 0;
     box-sizing:border-box;    
 }
 
 body {    
-    display: flex;
-    flex-direction: column;
+    display: flex;    
     justify-content: center;
     align-items: center;
-    background-color: lightblue;
+    background-color: lightblue;    
+}
+
+.grid-trigger {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 50px;
 }
 
 h1 {
@@ -16,11 +23,11 @@ h1 {
 }
 
 .custom-grid-btn {
-    padding: 10px;
+    padding: 10px;    
 }
 
 .container {
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: white;    
 }
 
@@ -28,8 +35,23 @@ h1 {
     display: flex;
 }
 
-.row .square {
-   width: 16px;
-   height: 16px;   
-   border: 1px solid black;
+.row .square {   
+   border: 1px solid rgb(163, 163, 163);  
+   width: 20px;
+   height: 20px;
+}
+
+.square.small {
+    width: 40px;
+    height: 40px;
+}
+
+.square.medium {
+    width: 32px;
+    height: 32px;
+}
+
+.square.large {
+    width: 5px;
+    height: 5px;
 }
